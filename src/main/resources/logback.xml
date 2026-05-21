@@ -1,0 +1,30 @@
+<configuration>
+    <appender name="myConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="myFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>
+            journalApp.log <!--iss naam ki file bana dega aur usme naye logs honge -->
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--file banegi date time ke sath-->
+            <fileNamePattern>journalApp-%d{yy-MM-dd_HH-mm}.%i.log</fileNamePattern> <!--jo journalApp.log naam ki file likhi hai na upar wahi hai yeh-->
+            <maxFileSize>10MB</maxFileSize> <!--jaise hi 10MB ka size ho jayega file ka waise hi nayi file ban jayegi -->
+            <maxHistory>10</maxHistory> <!--jaise hi 10 log files se zyda ho jayega waise hi old log file delete ho jayegi-->
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO"> <!--root pe hum info level tak ki logging krenge-->
+        <appender-ref ref="myConsoleAppender"/>
+        <appender-ref ref="myFileAppender"/>
+    </root>
+</configuration>

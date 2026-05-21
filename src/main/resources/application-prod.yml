@@ -1,0 +1,24 @@
+# yeh 3 lines tab use hongi jab hum locally use kr rhe honge hamare MongoDB database ko
+#spring.data.mongodb.uri = mongodb+srv://rashily2_db_user:DO7zZux0bywMr6dz@cluster0.mgfh3br.mongodb.net/?appName=Cluster0
+#spring.application.name=journalApp
+#spring.data.mongodb.host = localhost
+#spring.data.mongodb.port = 27017
+#spring.data.mongodb.database = journalDB
+#spring.data.mongodb.auto-index-creation = true
+#spring.data.mongodb.username = myjournaluser
+#spring.data.mongodb.password = mypassword
+#spring.main.allow-circular-references = true
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://rashily2_db_user:DO7zZux0bywMr6dz@cluster0.mgfh3br.mongodb.net/?appName=Cluster0
+      database: journalDB
+      auto-index-creation: true
+  main:
+    allow-circular-references: true
+
+server:
+  port: 8081
+  servlet:
+    context-path: /journal #mtlab saare endpoints ki starting pe humko journal include krna hoga..like localhost:8081/journal/...
